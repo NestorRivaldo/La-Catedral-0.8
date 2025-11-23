@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane style="-fx-background-color: #1d1d1f;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.ColaboradorController">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <top>
+                <VBox spacing="10">
+                    <children>
+                        <Label text="La Catedral Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+
+                        <Label text="Administración de Personal" style="-fx-font-size: 18px; -fx-text-fill: #a0a0a0;">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <children>
+                                <TextField promptText="Buscar colaborador..." style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                                
+                                <Button mnemonicParsing="false" style="-fx-background-color: #F2C94C; -fx-text-fill: #2D2D2D; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;" text="Buscar" />
+                                
+                                <Button onAction="#irAProductos" style="-fx-background-color: #404040; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;" text="&lt;&lt; Productos" />
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </VBox>
+            </top>
+
+            <center>
+                <VBox spacing="10">
+                    <children>
+                        <Label text="Equipo de Trabajo" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <TableView fx:id="tableColaboradores" style="-fx-background-color: #2d2d2d; -fx-border-color: transparent; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 4);" VBox.vgrow="ALWAYS">
+                            <columns>
+                                <TableColumn fx:id="colId" prefWidth="40.0" text="ID" />
+                                <TableColumn fx:id="colNombres" prefWidth="120.0" text="Nombres" />
+                                <TableColumn fx:id="colApellidos" prefWidth="150.0" text="Apellidos" />
+                                <TableColumn fx:id="colUsuario" prefWidth="100.0" text="Usuario" />
+                                <TableColumn fx:id="colPerfil" prefWidth="100.0" text="Perfil" />
+                                <TableColumn fx:id="colEstado" prefWidth="80.0" text="Estado" />
+                            </columns>
+                        </TableView>
+                    </children>
+                </VBox>
+            </center>
+
+            <right>
+                <VBox spacing="10" style="-fx-background-color: #2d2d2d; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0, 0, 5); -fx-min-width: 350px;">
+                    <children>
+                        <Label text="Registrar Colaborador" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                        
+                        <HBox spacing="10">
+                            <children>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Nombres" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                        <TextField fx:id="txtNombres" promptText="Nombres" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Apellido Paterno" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                        <TextField fx:id="txtApellidoPaterno" promptText="Apellido Paterno" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <VBox spacing="5">
+                            <children>
+                                <Label text="Apellido Materno" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                <TextField fx:id="txtApellidoMaterno" promptText="Apellido Materno" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                            </children>
+                        </VBox>
+
+                        <HBox spacing="10">
+                            <children>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Usuario" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                        <TextField fx:id="txtUsuario" promptText="Usuario" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Clave" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                        <PasswordField fx:id="txtClave" promptText="Clave" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <VBox spacing="5">
+                            <children>
+                                <Label text="Perfil" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                <ComboBox fx:id="cbPerfil" maxWidth="1.7976931348623157E308" promptText="Perfil" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 5;"/>
+                            </children>
+                        </VBox>
+                        
+                        <VBox alignment="CENTER" spacing="10">
+                            <children>
+                                <Button fx:id="btnGuardar" maxWidth="1.7976931348623157E308" onAction="#guardarColaborador" style="-fx-background-color: #F2C94C; -fx-text-fill: #2D2D2D; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 12; -fx-font-size: 14px; -fx-cursor: hand;" text="Guardar Usuario" />
+                                
+                                <HBox alignment="CENTER" spacing="10">
+                                    <children>
+                                        <Button fx:id="btnModificar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#modificarColaborador" style="-fx-background-color: #404040; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 15; -fx-cursor: hand;" text="Modificar" HBox.hgrow="ALWAYS" />
+                                        <Button fx:id="btnEliminar" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#eliminarColaborador" style="-fx-background-color: #FF453A; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 8 15; -fx-cursor: hand;" text="Eliminar" HBox.hgrow="ALWAYS" />
+                                    </children>
+                                </HBox>
+                            </children>
+                            <padding>
+                                <Insets top="15.0" />
+                            </padding>
+                        </VBox>
+                    </children>
+                </VBox>
+            </right>
+        </BorderPane>
+    </children>
+</AnchorPane>

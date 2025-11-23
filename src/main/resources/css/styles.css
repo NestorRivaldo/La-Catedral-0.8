@@ -1,0 +1,5 @@
+.text-field-error {
+    -fx-border-color: red;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px; /* Coincide con el radio de los campos de texto */
+}

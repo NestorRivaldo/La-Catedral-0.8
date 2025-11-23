@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="miContenedor" style="-fx-background-color: #1d1d1f;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.ProductoController">
+    <children>
+        <BorderPane AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0">
+            <top>
+                <VBox spacing="10">
+                    <children>
+                        <Label text="La Catedral Management" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: white;">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                        </Label>
+
+                        <Label text="Administración de Productos" style="-fx-font-size: 18px; -fx-text-fill: #a0a0a0;">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Label>
+
+                        <HBox alignment="CENTER_LEFT" spacing="10">
+                            <children>
+                                <TextField fx:id="txtFiltroDato" promptText="Buscar producto..." style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                                
+                                <Button mnemonicParsing="false" style="-fx-background-color: #F2C94C; -fx-text-fill: #2D2D2D; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;" text="Buscar" />
+                                
+                                <Button fx:id="btnActualizar" onAction="#actualizarProductos" style="-fx-background-color: #34C759; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;" text="🔄 Actualizar" />
+                                
+                                <Button onAction="#irAColaboradores" style="-fx-background-color: #404040; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;" text="Colaboradores" />
+                                <Button onAction="#irAFinanzas" style="-fx-background-color: #404040; -fx-text-fill: white; -fx-background-radius: 8; -fx-font-weight: bold; -fx-cursor: hand;" text="Finanzas" />
+                                
+                                <Button onAction="#cerrarSesion" style="-fx-background-color: transparent; -fx-text-fill: #FF453A; -fx-background-radius: 8; -fx-font-weight: bold; -fx-underline: true; -fx-cursor: hand;" text="Cerrar Sesión" />
+                            </children>
+                        </HBox>
+                    </children>
+                    <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                    </padding>
+                </VBox>
+            </top>
+
+            <center>
+                <VBox spacing="10">
+                    <children>
+                        <Label text="Lista de Productos" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: white;">
+                            <VBox.margin>
+                                <Insets top="10.0" />
+                            </VBox.margin>
+                        </Label>
+                        <TableView fx:id="tableView" style="-fx-background-color: #2d2d2d; -fx-border-color: transparent; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 10, 0, 0, 4);" VBox.vgrow="ALWAYS">
+                        </TableView>
+                    </children>
+                </VBox>
+            </center>
+
+            <right>
+                <VBox spacing="10" style="-fx-background-color: #2d2d2d; -fx-padding: 25; -fx-background-radius: 12; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0, 0, 5); -fx-min-width: 350px;">
+                    <children>
+                        <Label text="Registrar Producto" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: white;" />
+                        
+                        <VBox spacing="5">
+                            <children>
+                                <Label text="Nombre del Producto" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                <TextField fx:id="txtNombreProducto" promptText="ej. -------" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                            </children>
+                        </VBox>
+                        
+                        <HBox spacing="10">
+                            <children>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Precio Unit." style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                        <TextField fx:id="txtPUnit" promptText="0.00" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="P. Unit. Anterior" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                        <TextField fx:id="txtPUnitOld" disable="true" promptText="-" style="-fx-background-color: #2a2a2a; -fx-text-fill: #707070; -fx-background-radius: 8; -fx-border-color: #404040; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        
+                        <HBox spacing="10">
+                            <children>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Stock Actual" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                        <TextField fx:id="txtStock" promptText="0" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                                    </children>
+                                </VBox>
+                                <VBox spacing="5" HBox.hgrow="ALWAYS">
+                                    <children>
+                                        <Label text="Stock Anterior" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                        <TextField fx:id="txtStockOld" disable="true" promptText="-" style="-fx-background-color: #2a2a2a; -fx-text-fill: #707070; -fx-background-radius: 8; -fx-border-color: #404040; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 10;"/>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                        
+                        <VBox spacing="5">
+                            <children>
+                                <Label text="Marca" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                <ComboBox fx:id="cbxMarca" maxWidth="1.7976931348623157E308" promptText="Seleccionar Marca" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 5;"/>
+                            </children>
+                        </VBox>
+                        
+                        <VBox spacing="5">
+                            <children>
+                                <Label text="Categoría" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                <ComboBox fx:id="cbxCategoria" maxWidth="1.7976931348623157E308" promptText="Seleccionar Categoría" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 5;"/>
+                            </children>
+                        </VBox>
+                        
+                        <VBox spacing="5">
+                            <children>
+                                <Label text="Unidad de Medida" style="-fx-text-fill: #c0c0c0; -fx-font-weight: bold;"/>
+                                <ComboBox fx:id="cbxUnidMedida" maxWidth="1.7976931348623157E308" promptText="Seleccionar Unidad" style="-fx-background-color: #3d3d3d; -fx-text-fill: white; -fx-prompt-text-fill: #909090; -fx-background-radius: 8; -fx-border-color: #505050; -fx-border-radius: 8; -fx-font-size: 14px; -fx-padding: 5;"/>
+                            </children>
+                        </VBox>
+                        
+                        <Label fx:id="lbnMsg" style="-fx-text-fill: #FF453A; -fx-font-size: 12px;" wrapText="true" />
+                        
+                        <HBox alignment="CENTER_RIGHT" spacing="10">
+                            <children>
+                                <Button onAction="#clearForm" style="-fx-background-color: transparent; -fx-text-fill: #a0a0a0; -fx-font-weight: bold; -fx-background-radius: 8; -fx-cursor: hand;" text="Cancelar" />
+                                <Button onAction="#validarFormulario" style="-fx-background-color: #F2C94C; -fx-text-fill: #2D2D2D; -fx-font-weight: bold; -fx-background-radius: 8; -fx-padding: 10 20; -fx-font-size: 14px; -fx-cursor: hand;" text="Guardar Producto" />
+                            </children>
+                            <padding>
+                                <Insets top="15.0" />
+                            </padding>
+                        </HBox>
+                    </children>
+                </VBox>
+            </right>
+        </BorderPane>
+    </children>
+</AnchorPane>

@@ -1,0 +1,7 @@
+--- PRODUCTOS EN BASE DE DATOS ---
+ID    NOMBRE                         PRECIO     STOCK
+-------------------------------------------------------
+1     Zapatilla AXB                  300.00     12   
+2     Zapatillas Don _Jorge          250.00     12   
+3     aaaa                           22.00      2    
+-------------------------------------------------------

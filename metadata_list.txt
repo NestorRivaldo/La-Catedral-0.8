@@ -1,0 +1,10 @@
+--- CATEGORIAS ---
+1: Adultos
+2: Deportivas
+
+--- MARCAS ---
+1: Puma
+2: Adidas
+
+--- UNIDADES DE MEDIDA ---
+1: Unidad
